@@ -51,6 +51,8 @@
             this.txtRemaining = new System.Windows.Forms.TextBox();
             this.txtLabeled = new System.Windows.Forms.TextBox();
             this.txtFolderLabels = new System.Windows.Forms.TextBox();
+            this.btnConfirm = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picCurrent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPrev)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picNext)).BeginInit();
@@ -63,7 +65,6 @@
             this.picCurrent.Size = new System.Drawing.Size(330, 286);
             this.picCurrent.TabIndex = 0;
             this.picCurrent.TabStop = false;
-            this.picCurrent.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // picPrev
             // 
@@ -108,6 +109,7 @@
             this.btnChosePath.TabIndex = 5;
             this.btnChosePath.Text = "Chose Path";
             this.btnChosePath.UseVisualStyleBackColor = true;
+            this.btnChosePath.Click += new System.EventHandler(this.btnChosePath_Click);
             // 
             // label2
             // 
@@ -138,6 +140,7 @@
             this.btnNext.TabIndex = 8;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnSplit
             // 
@@ -158,6 +161,7 @@
             this.btnPrev.TabIndex = 10;
             this.btnPrev.Text = "Previous";
             this.btnPrev.UseVisualStyleBackColor = true;
+            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
             // 
             // checkMoveFolders
             // 
@@ -180,7 +184,6 @@
             this.checkRegexRename.TabIndex = 12;
             this.checkRegexRename.Text = "Rename pictures \r\nafter regex";
             this.checkRegexRename.UseVisualStyleBackColor = true;
-            this.checkRegexRename.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // textRegexFolders
             // 
@@ -189,7 +192,6 @@
             this.textRegexFolders.Name = "textRegexFolders";
             this.textRegexFolders.Size = new System.Drawing.Size(102, 26);
             this.textRegexFolders.TabIndex = 13;
-            this.textRegexFolders.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label4
             // 
@@ -238,7 +240,6 @@
             this.label7.Size = new System.Drawing.Size(126, 20);
             this.label7.TabIndex = 18;
             this.label7.Text = "Labeled pictures";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
             // 
@@ -277,11 +278,35 @@
             this.txtFolderLabels.Size = new System.Drawing.Size(82, 26);
             this.txtFolderLabels.TabIndex = 22;
             // 
+            // btnConfirm
+            // 
+            this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnConfirm.Location = new System.Drawing.Point(20, 60);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(105, 49);
+            this.btnConfirm.TabIndex = 23;
+            this.btnConfirm.Text = "Confirm Path";
+            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.button1.Location = new System.Drawing.Point(12, 553);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(233, 115);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "READY";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1385, 680);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.txtFolderLabels);
             this.Controls.Add(this.txtLabeled);
             this.Controls.Add(this.txtRemaining);
@@ -340,6 +365,8 @@
         private System.Windows.Forms.TextBox txtRemaining;
         private System.Windows.Forms.TextBox txtLabeled;
         private System.Windows.Forms.TextBox txtFolderLabels;
+        private System.Windows.Forms.Button btnConfirm;
+        private System.Windows.Forms.Button button1;
     }
 }
 
