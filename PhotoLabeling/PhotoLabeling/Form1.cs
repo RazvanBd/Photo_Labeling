@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 //notations:
@@ -18,7 +20,8 @@ namespace PhotoLabeling
         int _rootIndex = 0;
         int _currentIndex = 0;
         //store all photos from a batch/label
-        string[] _currnetPhotos;
+        //string[] _currnetPhotos = new string[99];
+        IList<string> _currnetPhotos = new List<string>();
         #endregion
 
         public Form1()
@@ -94,23 +97,30 @@ namespace PhotoLabeling
         {
             _rootIndex = _rootIndex + incrementValue;
 
-            try
+            if (incrementValue < 0)
+                //_currnetPhotos.RemoveAt(_currnetPhotos.Count);
+                _currnetPhotos.Remove(_files[_rootIndex].ToString());
+            try//previous
             {
                 picPrev.ImageLocation = _files[_rootIndex - 1];
+
+                
             }
             catch (Exception e) {
                 picPrev.InitialImage = null;
             }
 
-            try
+            try//current
             {
                 picCurrent.ImageLocation = _files[_rootIndex];
+                if (incrementValue >= 0)
+                    _currnetPhotos.Add(_files[_rootIndex].ToString());
             }
             catch (Exception e) {
                 picCurrent.InitialImage = null;
             }
 
-            try
+            try//next
             {
                 picNext.ImageLocation = _files[_rootIndex + 1];
             }
@@ -127,6 +137,11 @@ namespace PhotoLabeling
         private void btnPrev_Click(object sender, EventArgs e)
         {
             prev();
+        }
+
+        private void btnSplit_Click(object sender, EventArgs e)
+        {
+            label9.Text = _currnetPhotos.Count().ToString();
         }
     }
 }
